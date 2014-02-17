@@ -20,8 +20,11 @@ module TrackableClick
     def expand_options!(options)
       options[:class] = make_trackable_class_from_options(options)
       fp_pixel_data_attrs = make_fp_pixel_data_attrs_from_options!(options)
+      google_event_attrs = make_google_event_data_attrs_from_options!(options)
+
       options[:data] ||= {}
       options[:data].merge!(fp_pixel_data_attrs)
+      options[:data].merge!(google_event_attrs)
     end
 
     def make_trackable_class_from_options(options)
@@ -42,6 +45,23 @@ module TrackableClick
 
       options.delete(:fp_pixel)
       data_attrs
+    end
+
+    def make_google_event_data_attrs_from_options!(options)
+       data_attrs = {}
+       google_event_options = options[:google_event]
+
+       unless google_event_options.nil?
+         data_attrs[:tc_google_event_action] = google_event_options[:action]
+         data_attrs[:tc_google_event_label] = google_event_options[:label]
+
+         if google_event_options[:value]
+           data_attrs[:google_event_value] = google_event_options[:value]
+         end
+       end
+
+       options.delete(:google_event)
+       data_attrs
     end
   end
 end
