@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    trackable-click (0.0.1)
+    trackable-click (0.0.3)
       rails (~> 3.2.16)
 
 GEM
@@ -49,7 +49,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.8.4)
-    polyglot (0.3.3)
+    polyglot (0.3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
