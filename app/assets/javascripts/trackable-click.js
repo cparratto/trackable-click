@@ -21,14 +21,10 @@ $(document).ready(function() {
             var label = $(this).data('tc-google-event-label');
 
             if($(this).data('tc-google-button-event-value')) {
-                console.log("SHould have sen google.event " + label + " " + action);
                 ga('send', 'event', 'button', action , label, $(this).data('tc-google-button-event-value'));
             } else {
-                console.log("SHould have sen google.event " + label + " " + action);
                 ga('send', 'event', 'button', action , label);
             }
-
-
         }
     });
 });
