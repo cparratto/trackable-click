@@ -1,17 +1,22 @@
 module TrackableClick
   module ViewHelpers
+    def tracking_clicks?
+      Rails.configuration.tracking_clicks
+    end
+
+    def should_perform_tracking
+      if block_given? && tracking_clicks?
+        yield
+      end
+    end
+
     def trackable_submit(value, options = {})
-      expand_options!(options)
+      expand_options!(options) if tracking_clicks?
       submit_tag(value, options)
     end
 
-    def trackable_click_tag(name, content_or_options_with_block = nil, opts = nil, escape = true, &block)
-      expand_options!(options)
-      content_tag(name, content_or_options_with_block, opts, escape, block)
-    end
-
     def trackable_link_to(name = nil, options = nil, html_options = nil, &block)
-      expand_options!(options)
+      expand_options!(options) if tracking_clicks?
       link_to(name, options, html_options, block)
     end
 
