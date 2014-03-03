@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    trackable-click (0.0.4)
+    trackable-click (0.0.6)
       jquery-rails
       rails (~> 3.2.16)
 
