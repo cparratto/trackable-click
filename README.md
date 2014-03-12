@@ -21,7 +21,7 @@ Add trackable click to your javascript manifest:
 
     #= require trackable-click
 
-Add GA snippit to your layout file (exmaple in HAML):
+Add GA snippet to your layout file (example in HAML):
 
     - should_perform_tracking do
       :javascript
